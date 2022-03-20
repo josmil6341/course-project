@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { Grid } from "@react-ui-org/react-ui";
+import TopBar from "./TopBar";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TopBar />
+      <Grid columns="1" rows="4">
+        <h2>Order again</h2>
+        <h2>Trending</h2>
+        <h2>Recently Viewed</h2>
+        <h2>Deals</h2>
+        {/* <h2>Order again</h2>
+        <h2>Order again</h2> */}
+      </Grid>
     </div>
   );
 }

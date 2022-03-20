@@ -1,0 +1,64 @@
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import green from "@material-ui/core/colors/green";
+
+// react.school/material-ui
+
+const useStyles = makeStyles((theme) => ({
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+  customColor: {
+    // or hex code, this is normal CSS background-color
+    backgroundColor: green[500],
+  },
+  customHeight: {
+    minHeight: 200,
+  },
+  offset: theme.mixins.toolbar,
+}));
+
+export default function ButtonAppBar() {
+  const classes = useStyles();
+  const [example, setExample] = useState("primary");
+  return (
+    <React.Fragment>
+      <AppBar>
+        <Toolbar>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            Grocery Getter
+          </Typography>
+          <IconButton color="inherit" onClick={() => setExample("default")}>
+            Favorites
+          </IconButton>
+          <IconButton color="inherit" onClick={() => setExample("primary")}>
+            Trending
+          </IconButton>
+          <IconButton color="inherit" onClick={() => setExample("secondary")}>
+            Recently Viewed
+          </IconButton>
+          <IconButton color="inherit" onClick={() => setExample("transparent")}>
+            Deals
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <Toolbar />
+    </React.Fragment>
+  );
+}
